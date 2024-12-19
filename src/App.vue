@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Teste de Aplicação Vue JS</h1>
+    <h1>{{this.question}}</h1>
 
     <input type="radio" value="True">
     <label>True</label>
@@ -19,20 +19,26 @@
 export default {
   name: 'App',
 
-  created(){
-//     Vue.axios.get(api).then((response) => {
-//   console.log(response.data)
-// })
+  data() {
+    return {
+      question: undefined,
+      incorrectAnswers: undefined,
+      correctAnswer: undefined,
+    }
+  },
 
-this.axios
-.get('https://opentdb.com/api.php?amount=2&category=18&difficulty=medium&type=boolean')
-.then((response) => {
-  console.log(response.data.results[0])
-})
+  created() {
 
-// this.$http.get(api).then((response) => {
-//   console.log(response.data)
-// })
+    this.axios
+      .get('https://opentdb.com/api.php?amount=2&category=18&difficulty=medium&type=boolean')
+      .then((response) => {
+        this.question = response.data.results[0].question,
+        this.incorrectAnswers = response.data.results[0].incorrect_answers,
+        this.correctAnswers = response.data.results[0].correct_answer;
+        // console.log(response.data.results[0])
+      })
+
+
   }
 }
 </script>
