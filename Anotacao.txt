@@ -10,3 +10,5 @@ https://nodejs.org/pt
 https://cli.vuejs.org/guide/installation.html
 
 Open Trivia Db https://opentdb.com/
+
+https://www.npmjs.com/package/vue-axios vue-axios
