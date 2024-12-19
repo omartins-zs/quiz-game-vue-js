@@ -18,6 +18,22 @@
 
 export default {
   name: 'App',
+
+  created(){
+//     Vue.axios.get(api).then((response) => {
+//   console.log(response.data)
+// })
+
+this.axios
+.get('https://opentdb.com/api.php?amount=2&category=18&difficulty=medium&type=boolean')
+.then((response) => {
+  console.log(response.data.results[0])
+})
+
+// this.$http.get(api).then((response) => {
+//   console.log(response.data)
+// })
+  }
 }
 </script>
 
