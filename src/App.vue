@@ -31,7 +31,7 @@ export default {
     answers(){
       // var answers = this.incorrectAnswers;
       var answers = [...this.incorrectAnswers];
-      answers.push(this.correctAnswer);
+      answers.splice(Math.round(Math.random() * answers.length), 0, this.correctAnswer);
       return answers;
     }
   },
